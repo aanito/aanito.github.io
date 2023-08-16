@@ -1,36 +1,27 @@
 #!/usr/bin/python3
 
-from sqlalchemy import create_engine, Column, Integer, String
+import os
+import sqlalchemy
+from sqlalchemy import text
+from sqlalchemy import create_engine, column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Create the database engine
-engine = create_engine('mysql://aanito:4762@localhost/db_ref')
-
-# Create a session
-Session = sessionmaker(bind=engine)
-session = Session()
-
-# Create a base class for declarative models
-Base = declarative_base()
-
-# Define the Hospital model
-class Hospital(Base):
-    __tablename__ = 'hospitals'
+def create_database(db_name):
+    # Get the credentials from environmental variables
+    username = os.environ.get('DB_USERNAME')
+    password = os.environ.get('DB_PASSWORD')
+    host = os.environ.get('DB_HOST', 'localhost')
+    port = int(os.environ.get('DB_PORT', '3306'))
+    db_name = os.environ.get('DB_NAME', 'db_ref')
     
-    id = Column(Integer, primary_key=True)
-    name = Column(String(100))
-    address = Column(String(200))
-    services = Column(String(200))
-    
-    def __init__(self, name, address, services):
-        self.name = name
-        self.address = address
-        self.services = services
+    engine = create_engine(f'mysql://{username}:{password}@{host}:{port}')
+    with engine.connect() as conn:
+        query = f"create database if not exists {db_name}"
+        conn.execute(text(query))
 
-# Create the tables
-Base.metadata.create_all(engine)
+    engine = create_engine(f'mysql://{username}:{password}@{host}:{port}/{db_name}')
+    base = declarative_base()
 
+    return engine, base
 
-# Close the session
-session.close()
