@@ -1,8 +1,6 @@
-#!/usr/bin/python3
-
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from ref_model import create_database
+from Models.create_db import create_database
 
 # define the hospitals table using SQLAlchemy ORM
 from sqlalchemy.ext.declarative import declarative_base
@@ -10,10 +8,11 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class Hospital(Base):
-    __tablename__ = 'hospitals'
+    __tablename__ = 'hospital'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
     name = sqlalchemy.Column(sqlalchemy.String(255))
     address = sqlalchemy.Column(sqlalchemy.String(255))
+    service = sqlalchemy.Column(sqlalchemy.String(255))
 
 # create the table if it doesn't exist
 engine, base = create_database('db_ref')

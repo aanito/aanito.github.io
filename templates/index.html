@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Referral Homepage</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</head>
+<body>
+    <header>
+        <div class="login-button">
+            
+        <a href="{{ url_for('login') }}">Login</a>
+
+        <!-- <button>Login</button> -->
+        </div>
+    </header>
+    <main>
+        <h1>Patient Referral Website</h1>
+        <div id="search-container">
+            <input type="text" id="hospital-search" placeholder="search hospitals">
+            <ul id="hospitals-list"></ul>
+            <input type="text" id="service-search" placeholder="search services">
+            <ul id="services-list"></ul>
+        </div>
+        <!-- <input type="text" id="hospital-search" placeholder="Search hospitals">
+        <ul id="hospitals-list"></ul>
+        <input type="text" id="service-search" placeholder="Search services">
+        <ul id="services-list"></ul> -->
+    </main>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <title>Welcome to the patient referral website</title>
+    <style>
+    body {
+        font-family: arial, sans-serif;
+    }
+    .container {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h2 {
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .form-group button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .form-group button:hover {
+        background-color: #45a049;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2>login</h2>
+    <form action="login.php" method="post">
+        <div class="form-group">
+        <label for="username">username:</label>
+        <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+        <label for="password">password:</label>
+        <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+        <button type="submit">login</button>
+        </div>
+        <div>
+        <a href="{{ url_for('setup') }}">Create a new account</a>
+        <!-- <a href="create_account.php">Create a new account</a> -->
+        </div>
+    </form>
+    </div>
+</body>
+</html>
