@@ -1,18 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Let's go!{% endblock %}
+
+{% block content %}
 <!doctype html>
 <html>
 <head>
-    <title>Welcome to the patient referral website</title>
+    <title>Get noticed</title>
     <style>
     body {
         font-family: arial, sans-serif;
     }
+
+      
     .container {
         max-width: 300px;
         margin: 0 auto;
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        background-color: lightblue;
+        color: #333; /* Custom text color */
     }
+
+
     h2 {
         text-align: center;
     }
@@ -36,26 +47,26 @@
         padding: 10px;
         font-size: 16px;
         border: none;
-        background-color: #4caf50;
+        background-color: #3321d8;
         color: white;
         border-radius: 5px;
         cursor: pointer;
     }
     .form-group button:hover {
-        background-color: #45a049;
+        background-color: #4546a0;
     }
     </style>
 </head>
 <body>
     <div class="container">
-    <h2>login</h2>
+    <h2>Log In</h2>
     <form action="login.php" method="post">
         <div class="form-group">
-        <label for="username">username:</label>
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         </div>
         <div class="form-group">
-        <label for="password">password:</label>
+        <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         </div>
         <div class="form-group">
@@ -63,9 +74,9 @@
         </div>
         <div>
         <a href="{{ url_for('setup') }}">Create a new account</a>
-        <!-- <a href="create_account.php">Create a new account</a> -->
         </div>
     </form>
     </div>
 </body>
 </html>
+{% endblock %}
