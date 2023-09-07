@@ -22,6 +22,7 @@ class Hospital(db.Model):
     __tablename__ = 'hospital'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
+    address = db.Column(db.String(100), nullable=False)
     # Define a relationship with the services table using an association table
     services = db.relationship('Service', secondary='hospital_service', lazy='subquery',
         backref=db.backref('hospital', lazy=True))
@@ -53,7 +54,8 @@ def homepage():
 @app.route('/Hospital', methods=['GET'])
 def display_hospitals():
     hospitals = Hospital.query.all()
-    albums = [{'id': h.id, 'name': h.name, 'image_url': '<placeholder-image-url>'} for h in hospitals]
+    albums = [{'id': h.id, 'name': h.name, 'address': h.address} for h in hospitals]
+    # albums = [{'id': h.id, 'name': h.name, 'image_url': '<placeholder-image-url>'} for h in hospitals]
     return render_template('hospitals.html', albums=albums)
 
 

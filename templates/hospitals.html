@@ -1,14 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 
 {% block title %}Here you go!{% endblock %}
 
 {% block content %}
-<div class="albums">
-  {% for album in albums %}
-  <div class="album">
-    <img src="{{ album.image_url }}" alt="{{ album.name }} Image">
-    <h3>{{ album.name }}</h3>
+<div style="display: flex; justify-content: center;">
+  <div class="albums">   
+    {% for album in albums %}   
+    <div class="album">     
+      <img src="static/{{ album.name|lower|replace(' ', '_') }}.jpeg" alt="{{ album.name }} image">     
+      <h3>{{ album.name }}</h3>   
+    </div>   
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
+
 {% endblock %}
