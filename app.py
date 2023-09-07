@@ -68,18 +68,16 @@ def search_hospitals():
     hospitals = Hospital.query.filter(Hospital.name.ilike(f'%{query}%')).all()
     results = [{'id': hospital.id, 'name': hospital.name} for hospital in hospitals]
     return jsonify(results)
-# @app.route('/search', methods=['POST'])
-# def search():
-#     keyword = request.form.get('keyword')
-#     hospitals = Hospital.query.filter(Hospital.name.ilike(f'%{keyword}%')).all()
-#     services = Service.query.filter(Service.name.ilike(f'%{keyword}%')).all()
 
-#     hospitals_list = [hospital.to_dict() for hospital in hospitals]
-#     services_list = [service.to_dict() for service in services]
+@app.route('/services', methods=['GET'])
+def search_services():
+    
+    query = request.args.get('query', '')
+    services = Service.query.filter(Service.name.ilike(f'%{query}%')).all()
+    results = [{'id': service.id, 'name': service.name} for service in services]
+    return jsonify(results)
 
-#     return jsonify({'hospitals': hospitals_list, 'services': services_list})
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    # app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
