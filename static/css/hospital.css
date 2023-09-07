@@ -1,0 +1,42 @@
+.album {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.album img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.rating {
+    color: #f8ce0b;
+}
+
+.location {
+    font-style: italic;
+}
+
+.rating-stars span {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.rating-stars span:before {
+    content: '\2605';
+    margin-right: 5px;
+}
+
+.rating-stars span:hover:before,
+.rating-stars span:hover ~ span:before,
+.album:hover .rating-stars span:before,
+.album:hover .rating-stars span ~ span:before {
+    content: '\2605';
+}

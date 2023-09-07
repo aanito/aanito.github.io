@@ -1,4 +1,5 @@
 body {
+  background-image: url("{{ url_for('static', filename='homepic.gif') }}");
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -9,11 +10,16 @@ body {
   padding: 10px;
 }
 
+
 #search-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 12vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #search-container input[type="text"] {
@@ -21,9 +27,17 @@ body {
   width: 300px;
   padding: 10px;
   margin: 10px;
-  background-color: rgba(15, 4, 1, 0.897);
-  color: #ffffffe7;
+  background-color: #0d0d0da6;
+  color: hwb(0 100% 0% / 0.906);
 }
+
+
+#hospital-search::placeholder,
+#service-search::placeholder {
+  color: white;
+  /* font-weight: bold; */
+}
+
 
 #searchResults {
   margin-top: 20px;
@@ -83,9 +97,4 @@ navbar-nav.nav-item {
 navbar-nav.login-button {
   margin-left: auto;
 }
-
-
-
-
-
 

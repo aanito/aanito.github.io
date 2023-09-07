@@ -1,0 +1,112 @@
+body {
+    background-image: url("{{ url_for('static', filename='homepic.gif') }}");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    background-color: #333333;
+    padding: 10px;
+  }
+  
+  #search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+  }
+  
+  #search-container input[type="text"] {
+    margin-right: 40px;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(15, 4, 1, 0.897);
+    color: #ffffffe7;
+  }
+  
+  #searchResults {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 10px 0;
+  }
+  
+  footer .container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  footer .container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  footer .container ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  footer p {
+    margin-top: 10px;
+  }
+  
+  #typed-text {
+    border-right: .15em solid white;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end);
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  navbar-nav.navbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  navbar-nav.nav-item {
+    margin-left: 40px;
+  }
+  
+  navbar-nav.login-button {
+    margin-left: auto;
+  }
+  
+    
+
+body {
+    background-image: url("{{ url_for('static', filename='homepic.gif') }}");
+}
+footer {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+}
+footer p {
+    margin: 0;
+}
+footer nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+footer nav li {
+    margin-right: 10px;
+}
+footer a {
+    text-decoration: none;
+    color: #3c11d6;
+}

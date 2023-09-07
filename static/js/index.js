@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#hospital-search').keyup(function() {
         var query = $(this).val();
-        $.getJSON('/hospitals', {query: query}, function(data) {
+        $.getJSON('/search_hospitals', {query: query}, function(data) {
             var hospitalslist = $('#hospitals-list');
             hospitalslist.empty();
             $.each(data, function(index, hospital) {
@@ -16,7 +16,7 @@ $(document).ready(function() {
 
     $('#service-search').keyup(function() {
         var query = $(this).val();
-        $.getJSON('/services', {query: query}, function(data) {
+        $.getJSON('/search_services', {query: query}, function(data) {
             var servicesList = $('#services-list');
             servicesList.empty();
             $.each(data, function(index, service) {

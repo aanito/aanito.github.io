@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Here you go!{% endblock %}
+
+{% block content %}
+<div class="albums">
+  {% for album in albums %}
+  <div class="album">
+    <img src="{{ album.image_url }}" alt="{{ album.name }} Image">
+    <h3>{{ album.name }}</h3>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

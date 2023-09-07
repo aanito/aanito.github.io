@@ -49,9 +49,18 @@ hospital_service = db.Table('hospital_service',
 def homepage():
     return render_template('home.html')
 
+
+@app.route('/Hospital', methods=['GET'])
+def display_hospitals():
+    hospitals = Hospital.query.all()
+    albums = [{'id': h.id, 'name': h.name, 'image_url': '<placeholder-image-url>'} for h in hospitals]
+    return render_template('hospitals.html', albums=albums)
+
+
 @app.route('/Search', methods=['GET'])
 def Search():
     return render_template('index.html')
+
 
 @app.route('/login', methods=['GET'])
 def login():
@@ -61,7 +70,7 @@ def login():
 def setup():
     return render_template('setup.html')
 
-@app.route('/hospitals', methods=['GET'])
+@app.route('/search_hospitals', methods=['GET'])
 def search_hospitals():
     
     query = request.args.get('query', '')
@@ -69,7 +78,8 @@ def search_hospitals():
     results = [{'id': hospital.id, 'name': hospital.name} for hospital in hospitals]
     return jsonify(results)
 
-@app.route('/services', methods=['GET'])
+
+@app.route('/search_services', methods=['GET'])
 def search_services():
     
     query = request.args.get('query', '')
