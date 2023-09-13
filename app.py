@@ -46,7 +46,6 @@ hospital_service = db.Table('hospital_service',
     db.Column('service_id', db.Integer, db.ForeignKey('service.id'), primary_key=True)
 )
 
-
 @app.route('/')
 def homepage():
     return render_template('home.html')
@@ -115,4 +114,5 @@ def search_services():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True)
+    # app.run(host='0.0.0.0', port=5000, debug=True)
