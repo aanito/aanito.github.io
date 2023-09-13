@@ -105,59 +105,6 @@ if __name__ == '__main__':
             services.append(service)
             break
 
-    # # link services to hospital
-    # for hospital in hospitals:
-    #     print(f"\nSelect services for {hospital.name} (Enter service IDs separated by comma):")
-    #     service_ids = input().split(',')
-    #     for service_id in service_ids:
-    #         service = session.query(Service).filter_by(id=int(service_id)).first()
-    #         if service:
-    #             hospital.services.append(service)
-
     # commit the changes and close the session
     session.commit()
     session.close()
-
-    # prompt for hospital details
-    # hospitals = []
-
-    # while True:
-    #     name = input("name: ")
-    #     address = input("address: ")
-        
-    #     # check if hospital already exists
-    #     hospital_exists = session.query(Hospital).filter_by(name=name, address=address).first()
-    #     if hospital_exists:
-    #         print("Hospital already exists. Please enter a different hospital.")
-    #     else:
-    #         hospital = Hospital(name=name, address=address)
-    #         session.add(hospital)
-    #         hospitals.append(hospital)
-    #         break
-
-    # # prompt for service details
-    # services = []
-    # while True:
-    #     service_name = input("name: ")
-        
-    #     # check if service already exists
-    #     service_exists = session.query(Service).filter_by(name=service_name).first()
-    #     if service_exists:
-    #         print("Service already exists. Please enter a different service.")
-    #     else:
-    #         service = Service(name=service_name)
-    #         session.add(service)
-    #         services.append(service)
-    #         break
-
-    # # link services to hospital
-    # for hospital in hospitals:
-    #     print(f"\nselect services for {hospital.name}:")
-    #     for service in services:
-    #         choice = input(f"do you want to add {service.name}? (y/n): ")
-    #         if choice.lower() == 'y':
-    #             hospital.services.append(service)
-
-    # # commit the changes and close the session
-    # session.commit()
-    # session.close()
