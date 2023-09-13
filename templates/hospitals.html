@@ -2,16 +2,19 @@
 
 {% block title %}Here you go!{% endblock %}
 
+
 {% block content %}
 <div style="display: flex; justify-content: center;">
-  <div class="albums">   
-    {% for album in albums %}   
-    <div class="album">     
-      <img src="static/{{ album.name|lower|replace(' ', '_') }}.jpeg" alt="{{ album.name }} image">     
-      <h3>{{ album.name }}</h3>   
-    </div>   
-    {% endfor %}
-  </div>
+    <div class="albums">
+        {% for album in albums %}
+        <div class="album">
+            <a href="#" id="hospital_link">
+                <img src="static/{{ album.name|lower|replace(' ', '_') }}.jpeg" alt="{{ album.name }} image">
+                <h3>{{ album.name }}</h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-
 {% endblock %}
+

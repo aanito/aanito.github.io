@@ -22,6 +22,7 @@ class Hospital(db.Model):
     __tablename__ = 'hospital'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
+    htmllink = db.Column(db.String(100), nullable=False)
     address = db.Column(db.String(100), nullable=False)
     # Define a relationship with the services table using an association table
     services = db.relationship('Service', secondary='hospital_service', lazy='subquery',
@@ -71,6 +72,11 @@ def login():
 @app.route('/setup', methods=['GET'])
 def setup():
     return render_template('setup.html')
+
+@app.route('/Search/Betztha', methods=['GET'])
+def Search_betztha():
+    return render_template('betztha.html')
+
 
 @app.route('/search_hospitals', methods=['GET'])
 def search_hospitals():
