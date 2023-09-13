@@ -1,0 +1,33 @@
+{% extends 'base1.html' %}
+
+{% block title %}{{hospital.name}}{% endblock %}
+
+{% block content %}  
+<body>
+  <main>
+    <h1>Welcome to {{ hospital.name }}</h1>
+    <p>Providing quality healthcare services for our community.</p>
+    <section>
+      <h2>Our services</h2>
+      <ul>
+        {% for service in hospital.services %}
+        
+        <li><a href="#" style="color: darkbrown; font-weight: bold;">{{ service.name }}</a></li>
+        <!-- <li><a href="#">{{ service.name }}</a></li> -->
+        {% endfor %}
+      </ul>
+    </section>
+    <section>
+      <h2>About us</h2>
+      <p>You just call us or your doctor can do so while you are on your way!</p>
+    </section>
+    <section>
+      <h2>Address</h2>
+      <p>{{ hospital.address }}</p>
+    </section>
+  </main>
+  <footer>
+    <p>© year {{ hospital.name }}. all rights reserved. | privacy policy | terms of service</p>
+  </footer>
+</body>
+{% endblock %}

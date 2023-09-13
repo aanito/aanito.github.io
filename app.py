@@ -22,7 +22,7 @@ class Hospital(db.Model):
     __tablename__ = 'hospital'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    htmllink = db.Column(db.String(100), nullable=False)
+    # htmllink = db.Column(db.String(100), nullable=False)
     address = db.Column(db.String(100), nullable=False)
     # Define a relationship with the services table using an association table
     services = db.relationship('Service', secondary='hospital_service', lazy='subquery',
@@ -60,6 +60,16 @@ def display_hospitals():
     return render_template('hospitals.html', albums=albums)
 
 
+# @app.route('/service', methods=['GET'])
+# def display_services():
+#     services = Service.query.all()
+#     albums = [{'id': s.id, 'name': s.name} for s in services]
+#     # albums = [{'id': h.id, 'name': h.name, 'image_url': '<placeholder-image-url>'} for h in hospitals]
+#     return render_template('services.html', albums=albums)
+@app.route('/doctors', methods=['GET'])
+def doctors():
+    return render_template('doctors.html')
+
 @app.route('/Search', methods=['GET'])
 def Search():
     return render_template('index.html')
@@ -73,9 +83,22 @@ def login():
 def setup():
     return render_template('setup.html')
 
-@app.route('/Search/Betztha', methods=['GET'])
-def Search_betztha():
-    return render_template('betztha.html')
+
+@app.route('/Hospital/<int:id>', methods=['GET'])
+def display_hospital(id):
+    onehospital = Hospital.query.get(id)
+    if onehospital:
+        return render_template('onehospital.html', hospital=onehospital)
+    else:
+        return "Hospital not found"
+
+@app.route('/service/<int:id>', methods=['GET'])
+def display_service(id):
+    oneservice = Service.query.get(id)
+    if oneservice:
+        return render_template('oneservice.html', hospital=oneservice)
+    else:
+        return "Service not found"
 
 
 @app.route('/search_hospitals', methods=['GET'])
