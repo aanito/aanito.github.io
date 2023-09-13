@@ -60,12 +60,6 @@ def display_hospitals():
     return render_template('hospitals.html', albums=albums)
 
 
-# @app.route('/service', methods=['GET'])
-# def display_services():
-#     services = Service.query.all()
-#     albums = [{'id': s.id, 'name': s.name} for s in services]
-#     # albums = [{'id': h.id, 'name': h.name, 'image_url': '<placeholder-image-url>'} for h in hospitals]
-#     return render_template('services.html', albums=albums)
 @app.route('/doctors', methods=['GET'])
 def doctors():
     return render_template('doctors.html')
